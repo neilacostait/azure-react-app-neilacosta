@@ -11,8 +11,8 @@ resource "azurerm_service_plan" "react-app-resource2-service_plan_id" {
   sku_name            = "B1"
 }
 
-resource "azurerm_linux_web_app" "web-react-app-neilacosta-tf" {
-  name                = "web-react-app-neilacosta-tf"
+resource "azurerm_linux_web_app" "neilacosta-react-app-tf" {
+  name                = "neilacosta-react-app-tf"
   resource_group_name = azurerm_resource_group.react-app-resource2.name
   location            = azurerm_service_plan.react-app-resource2-service_plan_id.location
   service_plan_id     = azurerm_service_plan.react-app-resource2-service_plan_id.id
@@ -22,7 +22,7 @@ resource "azurerm_linux_web_app" "web-react-app-neilacosta-tf" {
     DOCKER_REGISTRY_SERVER_USERNAME = var.DOCKER_REGISTRY_SERVER_USERNAME
     DOCKER_REGISTRY_SERVER_PASSWORD = var.DOCKER_REGISTRY_SERVER_PASSWORD
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
-    WEBSITES_PORT = "8080"
+    WEBSITES_PORT = "3000"
     DOCKER_CUSTOM_IMAGE_NAME    = var.DOCKER_CUSTOM_IMAGE_NAME
   }
 
