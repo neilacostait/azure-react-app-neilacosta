@@ -23,11 +23,11 @@ resource "azurerm_linux_web_app" "web-react-app-neilacosta-tf" {
     DOCKER_REGISTRY_SERVER_PASSWORD = var.DOCKER_REGISTRY_SERVER_PASSWORD
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
     WEBSITES_PORT = "8080"
+    DOCKER_CUSTOM_IMAGE_NAME    = "azurereactappneilacosta/neilacostareactweb:latest"
   }
 
   site_config {
     always_on        = true
-    linux_fx_version = "DOCKER|azurereactappneilacosta/neilacostareactweb:44"
     }
     }
 
