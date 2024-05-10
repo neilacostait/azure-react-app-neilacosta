@@ -27,12 +27,9 @@ resource "azurerm_linux_web_app" "web-react-app-neilacosta-tf" {
 
   site_config {
     always_on        = true
-    app_command_line = ""
-    application_stack {
-       docker_image_name = "azurereactappneilacosta/neilacostareactweb:latest"
+    linux_fx_version = "DOCKER|azurereactappneilacosta/neilacostareactweb:latest"
     }
     }
-}
 
 #Pulling the variables from terraform cloud into terraform build process
 variable "DOCKER_REGISTRY_SERVER_URL" {
@@ -46,3 +43,6 @@ variable "DOCKER_REGISTRY_SERVER_USERNAME" {
 variable "DOCKER_REGISTRY_SERVER_PASSWORD" {
   description = "Password for Azure Docker Registry Server"
 }
+
+
+
