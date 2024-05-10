@@ -35,16 +35,13 @@ resource "azurerm_linux_web_app" "web-react-app-neilacosta-tf" {
 
 #Pulling the variables from terraform cloud into terraform build
 variable "DOCKER_REGISTRY_SERVER_URL" {
- type        = string
  description = "URL for Azure Docker Registry Server"
 }
 
 variable "DOCKER_REGISTRY_SERVER_USERNAME" {
-  type        = string
   description = "Username for Azure Docker Registry Server"
 }
 
 variable "DOCKER_REGISTRY_SERVER_PASSWORD" {
-  type        = string
   description = "Password for Azure Docker Registry Server"
 }
