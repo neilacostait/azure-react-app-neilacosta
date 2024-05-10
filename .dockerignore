@@ -4,3 +4,5 @@ build
 Dockerfile
 .git
 .gitignore
+main.tf
+providers.tf
