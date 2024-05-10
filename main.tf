@@ -11,8 +11,8 @@ resource "azurerm_service_plan" "react-app-resource2-service_plan_id" {
   sku_name            = "B1"
 }
 
-resource "azurerm_linux_web_app" "neilacosta-react-app-tf" {
-  name                = "neilacosta-react-app-tf"
+resource "azurerm_linux_web_app" "neilacosta-web-react-app-tf" {
+  name                = "neilacosta-web-react-app-tf"
   resource_group_name = azurerm_resource_group.react-app-resource2.name
   location            = azurerm_service_plan.react-app-resource2-service_plan_id.location
   service_plan_id     = azurerm_service_plan.react-app-resource2-service_plan_id.id
