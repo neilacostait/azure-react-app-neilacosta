@@ -22,6 +22,7 @@ resource "azurerm_linux_web_app" "web-react-app-neilacosta-tf" {
     DOCKER_REGISTRY_SERVER_USERNAME = var.DOCKER_REGISTRY_SERVER_USERNAME
     DOCKER_REGISTRY_SERVER_PASSWORD = var.DOCKER_REGISTRY_SERVER_PASSWORD
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
+    WEBSITES_PORT = "8080"
   }
 
   site_config {
