@@ -27,7 +27,7 @@ resource "azurerm_linux_web_app" "web-react-app-neilacosta-tf" {
 
   site_config {
     always_on        = true
-    linux_fx_version = "DOCKER|azurereactappneilacosta/neilacostareactweb:latest"
+    linux_fx_version = "DOCKER|azurereactappneilacosta/neilacostareactweb:44"
     }
     }
 
