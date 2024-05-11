@@ -6,3 +6,4 @@ Dockerfile
 .gitignore
 main.tf
 providers.tf
+assets
