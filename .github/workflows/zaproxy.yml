@@ -1,0 +1,15 @@
+name: "Secure Pipeline - OWASP Zap - DAST"
+on: ["push","pull_request"]
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan ZAP website
+    steps:
+      - name: OWASP ZAP
+        uses: zaproxy/action-baseline@v0.4.0
+        with:
+           # Target URL
+          target: "https://neilacosta-web-react-app-tf.azurewebsites.net/"
+          fail_action: false
+          token: $
+          issue_title: Security Tests
