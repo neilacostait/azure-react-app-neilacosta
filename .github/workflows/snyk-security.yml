@@ -41,4 +41,28 @@ jobs:
       - name: Upload Snyk results
         if: always()
         uses: actions/upload-artifact@v3
-       
+        with:
+          name: snyk-results
+          path: snyk_report.json
+          if-no-files-found: warn
+
+      - name: Annotate results
+        if: failure() && github.event.pull_request
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const snykReport = fs.readFileSync('snyk_report.json', 'utf8');
+            const report = JSON.parse(snykReport);
+
+            report.vulnerabilities.forEach(vul => {
+              const message = `${vul.title} (${vul.severity} severity) - ${vul.url}`;
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: message
+              });
+            });
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
