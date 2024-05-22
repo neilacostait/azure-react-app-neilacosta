@@ -33,7 +33,7 @@ resource "azurerm_linux_web_app" "neilacosta-web-react-app-tf" {
 
 
   site_config {
-    always_on = "false" #always_on must be explicitly set to false when using Free, F1, D1, or Shared Service Plans.
+    always_on = "false" #always_on must be explicitly set to false when using Free, F1, D1, or Shared Service Plans
     application_stack {
   docker_image_name        = "neildockerimageappreact:latest"
   docker_registry_url      = "https://${azurerm_container_registry.azurereactappneilacostaregistry.login_server}"
