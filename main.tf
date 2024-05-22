@@ -17,7 +17,7 @@ resource "azurerm_service_plan" "react-app-resource2-service_plan_id" {
   resource_group_name = azurerm_resource_group.react-app-resource2.name
   location            = azurerm_resource_group.react-app-resource2.location
   os_type             = "Linux"
-  sku_name            = "B2"
+  sku_name            = "F1"
 }
 
 resource "azurerm_linux_web_app" "neilacosta-web-react-app-tf" {
