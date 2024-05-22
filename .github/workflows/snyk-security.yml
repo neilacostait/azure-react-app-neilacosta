@@ -43,7 +43,7 @@ jobs:
           path: snyk_report.json
 
       - name: Annotate results
-        if: failure()
+        if: failure() && github.event_name == 'pull_request'
         uses: actions/github-script@v6
         with:
           script: |
@@ -53,8 +53,8 @@ jobs:
 
             report.vulnerabilities.forEach(vul => {
               const message = `${vul.title} (${vul.severity} severity) - ${vul.url}`;
-              github.issues.createComment({
-                issue_number: context.payload.pull_request.number,
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 body: message
