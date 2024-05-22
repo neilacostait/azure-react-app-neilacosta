@@ -14,12 +14,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Updated to Node.js 20 compatible version
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4 # Updated to Node.js 20 compatible version
         with:
-          node-version: '16' # Adjust the Node.js version as needed
+          node-version: '20' # Use Node.js 20
 
       - name: Install dependencies
         run: npm install # Adjust if using a different package manager or lockfile
@@ -40,7 +40,7 @@ jobs:
 
       - name: Upload Snyk results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # Updated to v4 to avoid deprecation
         with:
           name: snyk-results
           path: snyk_report.json
