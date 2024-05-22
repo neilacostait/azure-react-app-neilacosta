@@ -10,3 +10,4 @@ jobs:
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          additional_params: --report-format sarif --output-path results.sarif
