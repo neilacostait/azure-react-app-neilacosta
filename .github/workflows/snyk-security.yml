@@ -24,12 +24,16 @@ jobs:
       - name: Install dependencies
         run: npm install # Adjust if using a different package manager or lockfile
 
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions@master
+        run: snyk test --json > snyk_report.json
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          command: test # Use 'monitor' if you want to monitor the project
+
+      - name: List files for debugging
+        run: ls -la
 
       - name: Upload Snyk results
         if: always()
